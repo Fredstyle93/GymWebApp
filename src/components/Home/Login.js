@@ -1,6 +1,7 @@
 import React from 'react'
 import {UserConsumer} from "../../providers/UserContext";
 import fire from '../../fire'
+import "./Login.scss"
 
 class Login extends React.Component{
 
@@ -49,7 +50,7 @@ class Login extends React.Component{
                     <div className="box col-md-12">
                         <span className="shadow"></span>
                         <h1 className=" loginTitle">
-                            Ton meilleur entrainement
+                             Gym Parfait
                         </h1>
                         <i className="fas fa-dice-d20 fa-4x "></i>
                     </div>
@@ -63,13 +64,10 @@ class Login extends React.Component{
                             <input  value={this.state.email} onChange={this.handleChange} type="email" name="email"
                                    className="form-control" id="input2" aria-describedby="emailHelp"
                                    placeholder="Enter email"/>
-                            <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone
-                                else.
-                            </small>
                         </div>
                         <div className="form-group">
                             <input value={this.state.password} onChange={this.handleChange} type="password" name="password"
-                                   className="form-control input" id="exampleInputPassword1" placeholder="Password"/>
+                                   className="form-control input" id="exampleInputPassword1"  placeholder="Password"/>
                                    <span className="underline"></span>
                         </div>
 

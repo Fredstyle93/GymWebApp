@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #2a3a45;
+}
+
+
+
+[placeholder]{
+  text-align: center;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus{
+  background-color: #2a3a45!important;
+}
+
+.loginTitle{
+  font-weight: bold;
+  color: #000000;
+  padding: 2em;
+  text-align: center;
+
+}
+
+@keyframes turn {
+  0%   {transform:rotateY(0deg);}
+  100% {transform:rotateY(360deg);}
+}
+
+
+
+
+#emailHelp{
+  display:none!important;
+}
+
+.fa-dice-d20 {
+  color: #D97D54;
+  padding-bottom: 1em;
+  animation: turn 3s infinite;
+}
+
+.login{
+  input {
+    background-color: unset;
+    border: none;
+    border-radius: 0;
+    &:focus{
+      border: none;
+      background-color: unset;
+      box-shadow: unset !important;
+      border-bottom: 1px solid white;
+
+    }
+  }
+  .button{
+    background-color: #fff;
+    transition:all ease-in .2s;
+    border-radius: 2em;
+    width: 300px;
+    padding: .3em 0;
+    border: .5px solid #fff !important;
+    box-shadow: 10px 10px 22px -6px rgba(0,0,0,0.34);
+
+
+    @media screen and (max-width: 769px) {
+      margin-top: 1.4em;
+    }
+  }
+
+
+  .login{
+    background-color: #2a3a45;
+    color:#fff;
+  }
+
+
+
+  .signin{
+
+  }
+  color: #fff;
+}
+
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}

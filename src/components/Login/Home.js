@@ -1,5 +1,6 @@
 import React from 'react'
 import fire from '../../fire'
+import "./Home.css"
 
 
 class Home extends React.Component{
