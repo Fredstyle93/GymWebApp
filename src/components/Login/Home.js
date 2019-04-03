@@ -1,6 +1,7 @@
 import React from 'react'
 import fire from '../../fire'
 import "./Home.css"
+import Header from "../Exercice/Header/Header";
 
 
 class Home extends React.Component{
@@ -20,9 +21,8 @@ class Home extends React.Component{
     render(){
         return(
             <div>
-                <form>
-                    <i onClick={this.signout} className="fas fa-sign-out-alt"></i>
-                </form>
+                <Header signoutFn = {this.signout}/>
+
             </div>
         )
     }

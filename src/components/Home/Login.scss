@@ -47,6 +47,7 @@ select:-webkit-autofill:focus{
 
 .fa-dice-d20 {
   color: #D97D54;
+  transform-origin: 50% 0;
   padding-bottom: 1em;
   animation: turn 3s infinite;
 }
