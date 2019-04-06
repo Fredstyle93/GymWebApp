@@ -50,7 +50,7 @@ class Login extends React.Component{
                     <div className="box col-md-12">
                         <span className="shadow"></span>
                         <h1 className=" loginTitle">
-                             Gym Parfait
+                             Application Gym
                         </h1>
                         <i className="fas fa-dice-d20 fa-4x "></i>
                     </div>
