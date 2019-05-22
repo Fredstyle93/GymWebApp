@@ -1,5 +1,4 @@
 import React from 'react';
-import fire from "../fire";
 
 const {Provider , Consumer } = React.createContext();
 
@@ -7,43 +6,26 @@ class UserProvider extends React.Component{
 
     state = {
         users : [],
-        input : "",
-        user : null,
-        email: "",
-        password : ""
+        input : ""
     };
 
-    handleChange = e => {
-        this.setState({[e.target.name] : e.target.value })  ;
-    };
-
-    signup = e => {
+    addUserFn = e => {
         e.preventDefault();
-        fire.auth().createUserAndRetrieveDataWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-
-        }).catch((error)=>{
-            console.log(error)
-        });
+        console.log('Okk');
     };
 
-    login = e =>{
-        e.preventDefault();
-        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-        }).catch((error) => {
-        });
-    };
+    changeHandlerFn = e => {
+        this.setState({input : e.target.value});
 
-
-
+        console.log(this.state.input)
+};
 
     render(){
         return(
             <Provider value = {{
-                user : null,
-                changeHandlerFn : this.handleChange,
-                signupFn : this.signup,
-                loginFn: this.login,
-                currentUser : this.state.user
+                users : this.state.users,
+                addUserFn : this.addUserFn,
+                changeHandlerFn : this.changeHandlerFn
             }} >
                 {this.props.children}
             </Provider>

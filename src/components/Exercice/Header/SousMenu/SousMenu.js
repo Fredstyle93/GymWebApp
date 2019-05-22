@@ -1,6 +1,5 @@
 import React from 'react'
 import './SousMenu.scss'
-import Review from "../Review/Review";
 
 class SousMenu extends React.Component{
 
@@ -20,9 +19,6 @@ class SousMenu extends React.Component{
                 <div className="today">
                     {this.date()}
                 </div>
-                <section>
-                    <Review/>
-                </section>
 
 
             </div>

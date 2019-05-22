@@ -1,14 +1,13 @@
 import React from 'react';
+import logo from './logo.svg';
 import './App.css';
+import firebase from "firebase";
 import "firebase/auth";
-import Home from "./page/Home/Home";
-import Login from "./page/Login/Login";
+import Home from "./components/Login/Home";
+import Login from "./components/Home/Login";
 import {UserProvider, UserConsumer} from "./providers/UserContext";
 import fire from "./fire";
-import { Route , Switch , Redirect } from "react-router-dom";
-import Ajouter from "./components/Ajouter/Ajouter";
-import Header from "./components/Header/Header";
-import Navigation from "./components/Header/Navigation/Navigation"
+
 
 
 class App extends React.Component {
@@ -19,10 +18,6 @@ class App extends React.Component {
     });
     this.authListener = this.authListener.bind(this);
   }
-    componentDidMount() {
-        this.authListener();
-
-    }
 
 
     addUser = e => {
@@ -30,53 +25,28 @@ class App extends React.Component {
 
   };
 
-    authListener = () => {
-        fire.auth().onAuthStateChanged((user)=>{
-            if(user){
-                this.setState({user});
-                localStorage.setItem('user',user.uid)
-            }else{
-                this.setState({ user: null });
-                localStorage.removeItem('user');
-            }
-        })
-    };
-
-  signout = () => {
-    fire.auth().signOut();
-  };
-
     componentDidMount() {
       this.authListener();
-
-      console.log(this.state.user)
     }
 
-
+    authListener = () => {
+      fire.auth().onAuthStateChanged((user)=>{
+        console.log(user)
+        if(user){
+          this.setState({user});
+          localStorage.setItem('user',user.uid)
+        }else{
+          this.setState({ user: null });
+          localStorage.removeItem('user');
+        }
+      })
+    };
 
   render() {
     return (
       <div className="App">
-        <Navigation
-            isLogged = {this.state.user}
-            signoutFn = {this.signout}
-        />
         <UserProvider>
-            {this.state.user !== null ? (
-
-                <Switch>
-                  <Route path="/home" render={()=> <Home/>} />
-                  <Route path="/ajouter" render={()=> <Ajouter/>} />
-                  <Redirect from="/" to="home"/>
-              </Switch>
-
-                ) : (
-                    <Switch>
-                      <Route path="/login" component={Login} />
-                      <Redirect from="/" to="login"/>
-                    </Switch>
-                    )
-            }
+          {this.state.user ? (<Home/>) : (<Login/>)}
         </UserProvider>
 
       </div>
